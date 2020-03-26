@@ -1,0 +1,28 @@
+
+{% macro blog_listing(id, title, date, tags, slug) %}
+  <article>
+    <h2><a href="/blog/{{ slug }}">{{ title|title }}</a></h2>
+    <time datetime="{{ date }}">{{ date|date("F d, Y") }} at {{date|date("H:i A")}}</time>
+    {% import _self as lists %}
+    {{ lists.tag_listing(tags) }}
+  </article>
+{% endmacro %}
+
+{% macro comment_listing(author, text, date) %}
+  <div class="comment">
+    <strong>{{ author }}</strong>
+    <time datetime="{{ date }}">{{ date|date("F d, Y") }} at {{date|date("H:i A")}}</time>
+    <p>{{ text }}</p>
+  </div>
+{% endmacro %}
+
+
+{% macro tag_listing(tags, path="") %}
+  <ul class="tags-list center-text"> 
+     {% for tag in tags %}
+      <li style="background-color: {{tag.color}}">
+      <a href="/sort/{{tag.texxt}}">
+      {{ tag.text }}</a></li>
+     {% endfor %}
+    </ul>
+{% endmacro %}

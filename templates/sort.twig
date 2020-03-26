@@ -1,0 +1,14 @@
+{% extends "base.twig" %}
+{% block css %}
+<link rel="stylesheet" href="../css/normalize.css">
+<link rel="stylesheet" href="../css/site.css">
+{% endblock %}
+{% block content %}
+<div class="entry-list">
+{% import "lists.twig" as lists %}
+{% for blog in blogs %}
+{{ lists.blog_listing(blog['id'], blog['title'], blog['created_at'], blog['tags'], blog['slug']) }}
+{% endfor %}
+<div class="entry-list">
+{% endblock %}
+       

@@ -1,0 +1,13 @@
+{% macro input(name, value, type, class="") %}
+  <label for="{{ name }}">{{ name|title }}</label>
+  <input type="{{ type|default("text") }}" id="{{ name }}" name="{{ name }}" value="{{ value|e }}" placeholder="Enter your {{ name }}" />
+{% endmacro %}
+
+{% macro no_label_input(name, value, type, class="", color="", checked) %}
+  <input type="{{ type|default("hidden") }}" id="{{ name }}" name="{{ name }}" value="{{ value|e }}" {% if checked %} checked {% endif %}/>
+{% endmacro %}
+
+{% macro textarea(name, value, rows=5, class="") %}
+    <label for="{{ name }}">{{ name|title }}</label>
+    <textarea id="{{ name }}" name="{{ name }}" placeholder="Enter your {{ name }}" rows="{{ rows }}">{{ value }}</textarea>
+{% endmacro %}

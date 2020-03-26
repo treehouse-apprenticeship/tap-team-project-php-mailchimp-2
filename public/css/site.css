@@ -1,0 +1,317 @@
+
+
+/* ==========================================================================
+   Global Styles
+   ========================================================================== */
+   body {
+	background: url(../../concepts/JavaTechdegree_SparkBlog_1.jg) top center no-repeat;
+	font-size: 15px;
+	color: #000;
+	font-family: 'Noto Serif', Georgia, serif;
+	background: #444;
+}
+.container {
+	margin: 0 auto;
+	padding: 0 25px;
+	background: #FFF;
+}
+header .site-header {
+	border-bottom: 1px solid #d1d1d1;
+	margin: 0 auto;
+	height: 95px;
+}
+header .logo {
+	border: 5px solid #000;
+	text-decoration: none;
+	color: #000;
+	font-size: 21px;
+	font-weight: bold;
+	padding: 5px 10px;
+	margin: 24px 0 0 0;
+	float: left;
+	text-transform: uppercase;
+	font-family: 'Noto Sans', sans-serif;
+}
+header .new-entry {
+	float: right;
+	margin: 25px 0 0 0;
+}
+footer {
+	background: #444;
+	height: 30px;
+	text-align: center;
+	padding: 35px 0;
+	color: #999;
+}
+footer a {
+	color: #999;
+	text-decoration: none;
+	border-bottom: 2px solid #666;
+	padding-bottom: 1px;
+}
+
+
+
+/* ==========================================================================
+   Button Styles
+   ========================================================================== */
+
+.button {
+	padding: 8px 12px 7px 12px;
+	margin-top: 20px;
+	text-transform: uppercase;
+	background: #000;
+	border: 3px solid #000;
+	border-radius: 4px;
+	text-decoration: none;
+	color: #FFF;
+	font-weight: bold;
+	font-size: 13px;
+	font-family: 'Noto Sans', sans-serif;
+}
+.button.button-secondary {
+	background: transparent;
+	border-color: #000;
+	color: #000;
+}
+.button.button-round {
+	border-radius: 100px;
+	padding: 9px;
+	line-height: 1px;
+}
+.button:focus {
+	outline: 0;
+}
+
+
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+
+h1,
+h2,
+h3 {
+	margin: 0;
+	font-weight: bold;
+	line-height: 1.2em;
+}
+h1 {
+	font-size: 44px;
+	margin-bottom: 12px;
+}
+h2 {
+	font-size: 28px;
+}
+h3 {
+	font-size: 28px;
+}
+p {
+	font-size: 15px;
+	line-height: 1.8em;
+}
+p a {
+	border-bottom: 2px solid #c1c1c1;
+	padding: 0;
+}
+a.link {
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 14px;
+	padding-bottom: 1px;
+	font-family: 'Noto Sans', sans-serif;
+}
+
+
+
+/* ==========================================================================
+   Page Styles
+   ========================================================================== */
+
+.entry-list,
+.edit-entry,
+.new-entry,
+.password {
+	max-width: 700px;
+	margin: 0 auto;
+	padding: 90px 0 100px 0;
+}
+.edit-entry h2,
+.new-entry h2,
+.password h2 {
+	margin-bottom: 35px;
+}
+.entry-list article {
+	margin-bottom: 70px;
+	text-align: center;
+}
+.entry-list article:last-child {
+	margin-bottom: 5px;
+}
+.entry-list article h2 {
+	margin-bottom: 8px;
+}
+.entry-list article a {
+	text-decoration: none;
+	color: #000;
+}
+.entry-list time {
+	color: #888;
+}
+.entry-list.single {
+	padding-bottom: 30px;
+}
+.entry-list.single time {
+	font-size: 18px;
+}
+.entry {
+	max-width: 700px;
+	margin: 75px auto 0 auto;
+	text-align: left;
+}
+.entry p {
+	font-size: 18px;
+	margin-bottom: 40px;
+}
+.entry-comments {
+	background: #f1f1f1;
+	padding: 70px 0;
+}
+.entry-comments .container {
+	background: transparent;
+}
+.entry-comments .container,
+.edit-entry .container,
+.new-entry .container {
+	max-width: 700px;
+	margin: 0 auto;
+}
+.entry-comments h2 {
+	border-bottom: 1px solid #c1c1c1;
+	padding-bottom: 35px;
+}
+.comment {
+	border-top: 1px solid #c1c1c1;
+	border-bottom: 1px solid #c1c1c1;
+	padding: 35px 0 20px;
+	margin: 2px 0 0 0;
+}
+.comment time {
+	display: block;
+	color: #888;
+	font-size: 14px;
+	margin: 3px 0 20px 0;
+}
+.new-comment .container {
+	max-width: 700px;
+	margin: 0 auto;
+}
+
+
+
+/* ==========================================================================
+   Form Styles
+   ========================================================================== */
+
+
+.entry-comments form {
+	border-top: 1px solid #c1c1c1;
+	padding: 50px 0;
+	margin-top: 2px;
+}
+form label {
+	display: block;
+	font-family: 'Noto Sans', sans-serif;
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 14px;
+	margin-bottom: 5px;
+}
+form input[type=text],
+form input[type=password],
+form textarea {
+	border: 2px solid #e1e1e1;
+	font-size: 18px;
+	line-height: 1.8em;
+	padding:10px 13px;
+	margin-bottom: 30px;
+	border-radius: 4px;
+	width: calc(100% - 32px);
+}
+.new-comment form input[type=text],
+.new-comment form textarea {
+	font-size: 15px;
+}
+form input[type=text]:focus,
+form input[type=password]:focus,
+form textarea:focus {
+	outline: 0;
+	border-color: #b1b1b1;
+}
+form input[type=text]:hover,
+form textarea:hover {
+	border-color: #b1b1b1;
+}
+.new-comment form textarea {
+	min-height: 125px;
+}
+.edit-entry form textarea,
+.new-entry form textarea {
+	min-height: 400px;
+}
+input[type=submit] {
+	margin-right: 5px;
+}
+
+select {
+	width: 100%;
+	padding-bottom: 25px;
+}
+
+.tags-list {
+	color: white;
+	display: flex;
+	justify-content: center;
+}
+
+
+.tags-list li {
+  list-style: none;
+  margin-right: 30px;
+  width: 120px;
+  border-radius: 10px;
+  line-height: 2em;
+}
+
+.tags-list li a {
+	color: white;
+	display: block;
+}
+
+.tags-list li:hover {
+	background-color: black !important;
+	transition: background-color 0.5s ease;
+}
+
+.left-text {
+	text-align: left;
+}
+
+.center-text {
+	text-align: center;
+}
+
+.delete {
+	margin-top: 20px;
+	width: 200px;
+}
+
+.error {
+	border-radius: 5px;
+	background-color: orange;
+	text-align: center;
+}
+
+
+
+

@@ -1,0 +1,44 @@
+{% extends "base.twig" %}
+{% block css %}
+<link rel="stylesheet" href="../../css/normalize.css">
+<link rel="stylesheet" href="../../css/site.css">
+{% endblock %}
+{% block content %}
+<div class="entry-list single">
+  {% if error is not empty %}
+    <div class="error">
+      <p>Error: {{ error }}</p>
+    </div>
+  {% endif %}
+  <article>
+  <h1>{{ blog['title']|title }}</h1>
+  {% import "lists.twig" as lists %}
+  {{ lists.tag_listing(tags) }}
+  <time datetime="{{ blog['created_at'] }}">{{ blog['created_at']|date("F d, Y") }} at {{blog['created_at']|date("h:i A")}}</time>
+  <p class="entry">{{ blog['entry_text'] }}</p>
+  <p><a class="link" href="/edit/{{ blog['title_slug'] }}">Edit Entry</a></p>
+  </article>
+</div>
+<section class="entry-comments">
+  <div class="container">
+    <h2>Comments</h2>
+    <div class="comment">
+      {% import "lists.twig" as lists %}
+      {% for comment in comments %}
+        {{ lists.comment_listing(comment['user_name'], comment['comment_text'], comment['created_at']) }}
+      {% endfor %}
+    </div>
+    <div class="new-comment">
+      <form action=""> 
+        {% import "forms.twig" as forms %}
+        {{ forms.input("name", name, "text") }}
+        {{ forms.textarea("comment", comment, 5) }}
+        <button type="submit" class="button button-primary">Post Comment</button>
+        {% for key,value  in csrf %}
+          {{ forms.no_label_input(key, value, "hidden") }}
+        {% endfor %}
+      </form>
+    </div>
+  <div>
+</section>
+{% endblock %}

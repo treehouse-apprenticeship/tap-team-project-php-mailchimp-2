@@ -1,0 +1,44 @@
+
+{% extends "base.twig" %}
+{% block css %}
+<link rel="stylesheet" href="../css/normalize.css">
+<link rel="stylesheet" href="../css/select2.min.css">
+<link rel="stylesheet" href="../css/site.css">
+<script src="../js/jquery-3.4.1.min.js"></script>
+<script src="../js/select2.full.min.js"></script>
+{% endblock %}
+{% block content %}
+<div class="edit-entry">
+  {% if error is not empty %}
+    <div class="error">
+      <p>Error: {{ error }} </p>
+    </div>
+  {% endif %}
+  <h2>Edit Entry</h2>
+  {% import "forms.twig" as forms %}
+  <form action="" method="POST">
+  {{ forms.input("title", blog.title, "text", "") }}
+  {{ forms.textarea("entrry", blog.entry_text, 5, "") }}
+  <label>Tags: </label>
+  <select class="tag-select" name="tags[]" multiple="multiple">
+    {% for tag in all_tags %}
+      <option value="{{tag.text}}" {% if tag.text in selected_tags %}selected{% endif %}>{{tag.text}}</option>
+    {% endfor %}
+  </select>
+  <button type="submit" class="button button-primary">Save Entry</button>
+  {% for key,value  in csrf %}
+    {{ forms.no_label_input(key, value, "hidden") }}
+  {% endfor %}
+  </form>
+	<form action="" method="POST"> 
+		 {{ forms.no_label_input("delete", blog.id, "hidden", "", "", "") }}
+		<button type="submit" class="delete button button-secondary">Delete</button>
+		{% for key,value  in csrf %}
+    	{{ forms.no_label_input(key, value, "hidden") }}
+  	{% endfor %}
+	</form>
+</div>
+{% endblock %}
+{% block script %}
+<script src="../js/script.js"></script>
+{% endblock %}
