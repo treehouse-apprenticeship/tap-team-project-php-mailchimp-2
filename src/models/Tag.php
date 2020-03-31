@@ -1,13 +1,13 @@
 <?php
 
-namespace App;
+namespace App\models;
 
 class Tag extends \Illuminate\Database\Eloquent\Model {
   public function blogs() {
-    return $this->belongsToMany('App\Blog');
+    return $this->belongsToMany('App\models\Blog');
   }
 
   public function color() {
-    return $this->hasOne('App\Color');
+    return $this->hasOne('App\models\Color');
   }
 }

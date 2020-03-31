@@ -2,9 +2,9 @@
 use Slim\Http\Request;
 use Slim\Http\Response;
 use Cocur\Slugify\Slugify;
-use App\Blog;
-use App\Comment;
-use App\Tag;
+use App\models\Blog;
+use App\models\Comment;
+use App\models\Tag;
 
 
 
