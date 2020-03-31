@@ -171,7 +171,7 @@ $app->map(['GET', 'POST'], '/edit/{slug}',  function( Request $request, Response
     $args['csrf'] = [
         $nameKey => $request->getAttribute($nameKey),
         $valueKey => $request->getAttribute($valueKey)
-    ]
+    ];
     
     $blog = Blog::where('title_slug', '=', $args['slug'])->firstOrFail();
     $args['blog'] = $blog;
