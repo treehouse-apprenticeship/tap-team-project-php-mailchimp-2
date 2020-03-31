@@ -1,11 +1,10 @@
 <?php
-/* updated namespace to include 'model'
-Added 'use' for Eloquent*/
-namespace App\models;
-use Illuminate\Database\Eloquent\Model;
+
+namespace App\;
+
 class Color extends \Illuminate\Database\Eloquent\Model {
 
   public function tags() {
-    return $this->belongsTo('App\models\Tag');
+    return $this->belongsTo('App\Tag');
   }
 }

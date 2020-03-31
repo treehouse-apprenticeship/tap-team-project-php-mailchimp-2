@@ -1,5 +1,5 @@
 <?php
-
+//update to namespace looks ok
 namespace App\models;
 use Cocur\Slugify\Slugify;
 
