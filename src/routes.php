@@ -119,7 +119,8 @@ $app->map(['GET', 'POST'],'/new', function (Request $request, Response $response
 $app->map(['GET', 'POST'], '/edit/{slug}',  function( Request $request, Response $response, array $args) {
     if($request->getMethod() == "POST") {
         $args = array_merge($args, $request->getParsedBody());
-        $blog = Blog:where('title_slug', '=', $args['slug'])->firstOrFail();
+        //added missing colon after where clause. removed "=" as it doesn't appear to follow stmnt structure
+        $blog = Blog::where('title_slug',  $args['slug'])->firstOrFail();
         // if the post was to delete, delete the post after confirmation
         if(!empty($args['delete'])) {
             $blog->delete();
