@@ -1,37 +1,54 @@
 {% extends "base.twig" %}
 {% block css %}
+
 <link rel="stylesheet" href="../css/normalize.css">
 <link rel="stylesheet" href="../css/select2.min.css">
 <link rel="stylesheet" href="../css/site.css">
 <script src="../js/jquery-3.4.1.min.js"></script>
 <script src="../js/select2.full.min.js"></script>
 {% endblock %}
+
 {% block content %}
-<div class="new-entry">
-  {% if error is not empty %}
-    <div class="error">
-      <p>Error: {{ error }}</p>
-    </div>
+    <div class="new-entry">
+      {% if error is not empty %}
+        <div class="error">
+          <p>Error: {{ error }}</p>
+        </div>
   {% endif %}
+
+
+
   <h2>Publish New Entry</h2>
-  {{ blog }}
-  <form action="" method="POST">
-  {% import "forms.twig" as formss %} 
-  {{ forms.input("title", title, "text") }}
-  {{ forms.textarea("entry", entry, 5) }}
-  <label>Tags: </label>
-  <select class="tag-select" name="tags[]" multiple="multiple">
-    {% for tag in all_tags %}
-      <option value="{{tag.text}}">{{tag.text}}</option>
+{{ blog }}
+
+<form method="post" action="/new">
+    <!-- <label for="title">Title</label> -->
+    <!-- <input type="text" name="title" <br> -->
+  {% import "forms.twig" as forms %}
+      {{ forms.input("title", title, "text") }}
+
+      <!-- <label for="entry_text">Entry</label> -->
+
+      {{ forms.textarea("entry", entry, 5) }}
+
+
+
+          <label>Tags: </label>
+          <select class="tag-select" name="tags[]" multiple="multiple">
+      {% for tag in all_tags %}
+          <option value="{{tag.text}}">{{tag.text}}</option>
     {% endfor %}
+
   </select>
-  <button type="submit" class="button button-primary">Publish Entry</button>
+  <label>  </label>
+  <br/><button type="submit" class="button button-primary">Publish Entry</button>
   <a href="#" class="button button-secondary">Cancel</a>
   {% for key,value  in csrf %}
     {{ forms.no_label_input(key, value, "hidden") }}
   {% endfor %}
   </form>
 </div>
+
 {% endblock %}
 {% block script %}
 <script src="../js/script.js"></script>
