@@ -10,7 +10,7 @@ use App\models\Tag;
 
 
 // DETAIL route
-$app->map(['GET', 'POST'], '/blog/{slug}',  function( Request $request, Response $response, array $args) {
+$app->map(['GET', 'POST'], '/blog',  function( Request $request, Response $response, array $args) {
     if($request->getMethod() == "POST") {
         $args = array_merge($args, $request->getParsedBody());
         $blog = Blog::where('title_slug', '=', $args['slug'])->firstOrFail();
