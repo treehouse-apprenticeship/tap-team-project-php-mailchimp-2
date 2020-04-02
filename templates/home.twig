@@ -7,7 +7,7 @@
 <div class="entry-list">
 {% import "lists.twig" as lists %}
 {% for blog in blogs %}
-{{ lists.blog_listing(blog['id'], blog['title'], blog['created_at'], blog['tags']) }}
+{{ lists.blog_listing(blog['id'], blog['title'], blog['created_at'], blog['tags'], blog['title_slug']) }}
 {% endfor %}
 <div class="entry-list">
 {% endblock %}
