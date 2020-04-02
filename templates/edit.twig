@@ -18,7 +18,7 @@
   {% import "forms.twig" as forms %}
   <form action="" method="POST">
   {{ forms.input("title", blog.title, "text", "") }}
-  {{ forms.textarea("entrry", blog.entry_text, 5, "") }}
+  {{ forms.textarea("entry", blog.entry_text, 5, "") }}
   <label>Tags: </label>
   <select class="tag-select" name="tags[]" multiple="multiple">
     {% for tag in all_tags %}
