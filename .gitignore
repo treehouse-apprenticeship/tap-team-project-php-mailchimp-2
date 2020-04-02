@@ -2,3 +2,7 @@
 /logs/*
 !/logs/README.md
 /original_files/
+
+.DS_Store
+/**/.DS_Store
+.DS_Store
