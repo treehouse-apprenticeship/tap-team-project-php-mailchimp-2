@@ -211,7 +211,7 @@ $app->get('/sort/{tag}', function (Request $request, Response $response, array $
 
     $args['blogs'] = $to_send;
     // Render a view much like the original home.twig but only showing blog entries containing that tag
-    return $this->view->render($response, 'sorrt.twig', $args);
+    return $this->view->render($response, 'sort.twig', $args);
 })->setName('sort');
 
 
