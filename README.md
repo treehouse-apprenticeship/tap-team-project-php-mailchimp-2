@@ -7,12 +7,14 @@
 ## Tech/Frameworks Integrations
 
 * [Slim](https://www.slimframework.com/)
-* [Laravel](https://laravel.com/docs/4.2/eloquent)  
+* [Eloquent](https://laravel.com/docs/4.2/eloquent)  
 * [Twig](https://twig.symfony.com/)
 * [Slim/Twig View](http://www.slimframework.com/docs/v3/features/templates.html)
 * [cocur/slugify](https://github.com/cocur/slugify)
 * [Slim CSRF Protection](http://www.slimframework.com/docs/v3/features/csrf.html)
-
+* CSS
+* Javascript
+* JQuery
 
 ## Screenshots
 
