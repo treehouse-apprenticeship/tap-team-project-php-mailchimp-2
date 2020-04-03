@@ -30,7 +30,7 @@
     {{ forms.no_label_input(key, value, "hidden") }}
   {% endfor %}
   </form>
-	<form action="" method="POST"> 
+	<form action="" method="POST" onsubmit="return confirm('Are you sure you want to delete this blog?')"> 
 		 {{ forms.no_label_input("delete", blog.id, "hidden", "", "", "") }}
 		<button type="submit" class="delete button button-secondary">Delete</button>
 		{% for key,value  in csrf %}
