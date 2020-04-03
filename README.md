@@ -6,7 +6,9 @@
 
 ## Screenshots
 
+#### Home Page
 ![Screenshot of the Home Page](images/screenshot_home_page.png)
 
+#### Blog Entry
 ![Screenshot of Blog Entry](images/screenshot_blog_entry.png)
 
