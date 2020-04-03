@@ -3,3 +3,8 @@
 
 ### About:
   Project 5 for Treehouse's PHP Techdegree program. Uses the Slim microframework to build a basic blog. 
+
+## Screenshots
+
+![Screenshot of Blog Entry](images/screenshot_blog_entry.png)
+

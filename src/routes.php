@@ -3,6 +3,7 @@ use Slim\Http\Request;
 use Slim\Http\Response;
 use Cocur\Slugify\Slugify;
 use App\models\Blog;
+use App\models\Color;
 use App\models\Comment;
 use App\models\Tag;
 
@@ -19,9 +20,9 @@ $app->map(['GET', 'POST'], '/blog/{slug}',  function( Request $request, Response
         } else {  // set the user to the name given
             $comment->user_name = $args['name'];
         }
-        
+
         // creates a new comment object if the comment text wasn't empty
-        if(!empty($args['comment'])) {         
+        if(!empty($args['comment'])) {
             $comment->blog_id = $blog['id'];
             $comment->comment_text = $args['comment'];
             $comment->save();
@@ -30,13 +31,13 @@ $app->map(['GET', 'POST'], '/blog/{slug}',  function( Request $request, Response
         }
         $args['error'] = "Text is required in the comment field.";
     }
-    
+
 
     $blog = Blog::where('title_slug', '=', $args['slug'])->firstOrFail();
     $comments = Comment::where('blog_id', '=', $blog->id)->get();
     // package up all the information we need for the detail view
     $args['blog'] = $blog;
-   
+
     $tags = $blog->tags;
     $tag_details = [];
     foreach($tags as $tag) {
@@ -101,8 +102,8 @@ $app->map(['GET', 'POST'],'/new', function (Request $request, Response $response
         $args['error'] = " Both title and text are required to submit an entry.";
     }
 
- 
-    // CSRF information    
+
+    // CSRF information
     $nameKey = $this->csrf->getTokenNameKey();
     $valueKey = $this->csrf->getTokenValueKey();
     $args['csrf'] = [
@@ -119,8 +120,8 @@ $app->map(['GET', 'POST'],'/new', function (Request $request, Response $response
 $app->map(['GET', 'POST'], '/edit/{slug}',  function( Request $request, Response $response, array $args) {
     if($request->getMethod() == "POST") {
         $args = array_merge($args, $request->getParsedBody());
-        //added missing colon after where clause. removed "=" as it doesn't appear to follow stmnt structure
-        $blog = Blog::where('title_slug',  $args['slug'])->firstOrFail();
+        //added missing colon after where clause.
+        $blog = Blog::where('title_slug', '=', $args['slug'])->firstOrFail();
         // if the post was to delete, delete the post after confirmation
         if(!empty($args['delete'])) {
             $blog->delete();
@@ -172,7 +173,7 @@ $app->map(['GET', 'POST'], '/edit/{slug}',  function( Request $request, Response
         $nameKey => $request->getAttribute($nameKey),
         $valueKey => $request->getAttribute($valueKey)
     ];
-    
+
     $blog = Blog::where('title_slug', '=', $args['slug'])->firstOrFail();
     $args['blog'] = $blog;
     $args["all_tags"] = Tag::all();
@@ -192,7 +193,7 @@ $app->get('/sort/{tag}', function (Request $request, Response $response, array $
     foreach($blogs as $blog) {
         $tags = $blog->tags;
         $tag_details = [];
-       
+
         foreach($tags as $tag) {
             array_push($tag_details, [
                 "text" => $tag['text'],
@@ -207,10 +208,10 @@ $app->get('/sort/{tag}', function (Request $request, Response $response, array $
             "tags" => $tag_details
         ]);
     }
-    
+
     $args['blogs'] = $to_send;
     // Render a view much like the original home.twig but only showing blog entries containing that tag
-    return $this->view->render($response, 'sorrt.twig', $args);  
+    return $this->view->render($response, 'sorrt.twig', $args);
 })->setName('sort');
 
 
@@ -218,7 +219,7 @@ $app->get('/sort/{tag}', function (Request $request, Response $response, array $
 $app->get('/', function (Request $request, Response $response, array $args) {
 
     $blogs = Blog::orderBy('created_at', 'DESC')->get();
-   
+
     // package up all information to send to next view
     $to_send = [];
 
@@ -241,7 +242,7 @@ $app->get('/', function (Request $request, Response $response, array $args) {
             "tags" => $tag_details
         ]);
     }
-    
+
     $args['blogs'] = $to_send;
     // Render index view
     return $this->view->render($response, 'home.twig', $args);
