@@ -29,7 +29,7 @@
       {% endfor %}
     </div>
     <div class="new-comment">
-      <form action=""> 
+      <form action="/blog/{{ blog['title_slug'] }}"  method="POST"> 
         {% import "forms.twig" as forms %}
         {{ forms.input("name", name, "text") }}
         {{ forms.textarea("comment", comment, 5) }}
