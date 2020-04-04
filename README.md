@@ -23,3 +23,22 @@
 
 #### Blog Entry
 ![Screenshot of Blog Entry](images/screenshot_blog_entry.png)
+
+
+
+---
+
+## Installation
+- code required to get started
+
+### Clone
+- Clone this repo to your local machine using https://github.com/treehouse-apprenticeship/tap-team-project-php-mailchimp-2.git
+
+### Setup
+> update and install this package first
+
+- ensure vendor file has been created
+
+```shell
+$ composer update
+$ composer install
