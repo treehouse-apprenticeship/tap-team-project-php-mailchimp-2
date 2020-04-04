@@ -37,6 +37,7 @@ $app->map(['GET', 'POST'], '/blog/{slug}',  function( Request $request, Response
     $comments = Comment::where('blog_id', '=', $blog->id)->get();
     // package up all the information we need for the detail view
     $args['blog'] = $blog;
+    $args['comments'] = $comments; //comments were not being passed through 
 
     $tags = $blog->tags;
     $tag_details = [];
