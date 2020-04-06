@@ -205,6 +205,7 @@ $app->get('/sort/{tag}', function (Request $request, Response $response, array $
         array_push($to_send,[
             "id" => $blog['id'],
             "title" => $blog['title'],
+            "slug" => $blog['title_slug'],
             "created_at" => $blog['created_at'],
             "tags" => $tag_details
         ]);
